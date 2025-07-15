@@ -15,7 +15,7 @@ How to run:
 >   
 > [Service]  
 > ExecStart=/usr/bin/python3 /home/youruser/kcollect/main.py  
-> WorkingDirectory=/home/youruser/kollect  
+> WorkingDirectory=/home/youruser/kcollect  
 > StandardOutput=file:/home/youruser/kcollect/logcollector_stdout.log  
 > StandardError=file:/home/youruser/kcollect/logcollector_stderr.log  
 > Restart=on-failure  
