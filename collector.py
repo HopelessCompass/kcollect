@@ -32,7 +32,7 @@ def collect_logs(config):
             path = source['path']
 
             if not os.path.isfile(path):
-                print(f"⚠️ Файл {path} не найден, пропускаем...")
+                print(f"File {path} not found, skipping file")
                 continue
 
             last_pos = state.get(path, 0)
@@ -47,7 +47,7 @@ def collect_logs(config):
 
                     state[path] = log_file.tell()
             except Exception as e:
-                print(f"⚠️ Ошибка при чтении {path}: {e}")
+                print(f"Error reading file {path}: {e}")
 
     save_state(state)
-    print(f"✅ Логи собраны в {out_file_path}")
+    print(f"Logs stored at {out_file_path}")
