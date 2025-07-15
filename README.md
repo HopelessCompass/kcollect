@@ -1,5 +1,6 @@
 # kcollect
-Log collector "Kcollect" gives you ability to collect all your log files and directories in one place
+Log collector "Kcollect" gives you ability to collect all your log files and directories in one place.  
+It's like Graylog, but works locally
 
 How to run:
 1. sudo touch /etc/systemd/system/logcollector.service
