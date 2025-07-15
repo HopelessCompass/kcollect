@@ -3,7 +3,7 @@ Log collector "Kcollect" gives you ability to collect all your log files and dir
 
 How to run:
 1. sudo touch /etc/systemd/system/logcollector.service
-2. Then fill this file with this config:
+2. Then fill this file with this config (open in raw format):
 
 >[Unit]
 > Description=Custom Log Collector Daemon
