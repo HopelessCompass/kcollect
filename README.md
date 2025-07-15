@@ -5,7 +5,7 @@ How to run:
 1. sudo touch /etc/systemd/system/logcollector.service
 2. Then fill this file with this config (open in raw format):
 
->[Unit]
+> [Unit]  
 > Description=Custom Log Collector Daemon  
 > After=network.target  
 >   
