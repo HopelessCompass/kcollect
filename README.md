@@ -1,5 +1,5 @@
 # kcollect
-Log collector "Kcollect" gives you ability to collect all your log files and directories in one place.  
+Log collector "Kristina collects" gives you ability to collect all your log files and directories in one place.  
 It's like Graylog, but works locally.  
 
 Instruction:
