@@ -3,7 +3,7 @@ Log collector "Kcollect" gives you ability to collect all your log files and dir
 It's like Graylog, but works locally.  
 
 Instruction:
-It's easy to use. Just add your log files in config.yml file and start/restart service. Program will automatically implement at start of message a nickname of file which you set up in config, file's location and timestamp
+It's easy to use. Just add your log files in config.yml file and start/restart service. Program will automatically implement at the start of the message a nickname of file which you set up in config, file's location and timestamp
 
 How to run:
 1. sudo touch /etc/systemd/system/logcollector.service
