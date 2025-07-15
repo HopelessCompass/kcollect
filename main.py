@@ -9,7 +9,7 @@ RUNNING = True
 def handle_exit(signum, frame):
     global RUNNING
     RUNNING = False
-    print("⛔ Получен сигнал завершения, выходим...")
+    print("Got SIGTERM, exiting")
 
 def run_daemon(interval_seconds=30):
     config = load_config()
