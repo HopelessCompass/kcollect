@@ -6,7 +6,7 @@ Instruction:
 It's easy to use. Just add your log files in config.yml file and start/restart service. Program will automatically implement at the start of the message a nickname of file which you set up in config, file's location and timestamp
 
 How to run:
-1. sudo touch /etc/systemd/system/logcollector.service
+1. sudo touch /etc/systemd/system/kcollect.service
 2. Then fill this file with this config (open in raw format):
 
 > [Unit]  
@@ -14,10 +14,10 @@ How to run:
 > After=network.target  
 >   
 > [Service]  
-> ExecStart=/usr/bin/python3 /home/youruser/log_collector/main.py  
-> WorkingDirectory=/home/youruser/log_collector  
-> StandardOutput=file:/home/youruser/log_collector/logcollector_stdout.log  
-> StandardError=file:/home/youruser/log_collector/logcollector_stderr.log  
+> ExecStart=/usr/bin/python3 /home/youruser/kcollect/main.py  
+> WorkingDirectory=/home/youruser/kollect  
+> StandardOutput=file:/home/youruser/kcollect/logcollector_stdout.log  
+> StandardError=file:/home/youruser/kcollect/logcollector_stderr.log  
 > Restart=on-failure  
 >   
 > [Install]  
@@ -29,6 +29,6 @@ How to run:
 
 > sudo systemctl daemon-reload
 
-> sudo systemctl enable logcollector.service
+> sudo systemctl enable kcollect.service
 
-> sudo systemctl start logcollector.service
+> sudo systemctl start kcollect.service
