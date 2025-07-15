@@ -22,6 +22,9 @@ How to run:
 3. Then reread all unit files, update internal configuration, enable service and start service:
     
 	sudo systemctl daemon-reexec
+
 	sudo systemctl daemon-reload
+
 	sudo systemctl enable logcollector.service
+
 	sudo systemctl start logcollector.service
