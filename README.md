@@ -17,7 +17,7 @@ How to run:
 > Restart=on-failure
 > 
 > [Install]
-. WantedBy=multi-user.target
+> WantedBy=multi-user.target
 
 3. Then reread all unit files, update internal configuration, enable service and start service:
     
