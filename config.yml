@@ -1,9 +1,5 @@
-log_sources:
-  - name: nginx
-    path: /var/log/nginx/access.log
-  - name: app
-    path: /home/user/myapp/logs/app.log
-  - name: system
-    path: /var/log/syslog
-
-output_directory: /home/user/collected_logs
+sources:
+  - path: /var/log/syslog
+    alias: syslog
+  - path: /var/log/auth.log
+    alias: auth
