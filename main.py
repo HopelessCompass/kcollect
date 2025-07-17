@@ -1,26 +1,30 @@
-import time
-import signal
-import sys
 import daemon
-from collector import load_config, collect_logs
+import logging
+import time
+import os
 
-RUNNING = True
+LOG_FILE = "/var/log/kcollect.log"
 
-def handle_exit(signum, frame):
-    global RUNNING
-    RUNNING = False
-    print("Got SIGTERM, exiting")
+def setup_logging():
+    os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
+    logging.basicConfig(
+        filename=LOG_FILE,
+        level=logging.INFO,
+        format='%(asctime)s [%(levelname)s] %(message)s',
+    )
 
-def run_daemon(interval_seconds=30):
-    config = load_config()
-
-    signal.signal(signal.SIGTERM, handle_exit)
-    signal.signal(signal.SIGINT, handle_exit)
-
-    while RUNNING:
-        collect_logs(config)
-        time.sleep(interval_seconds)
+def run():
+    setup_logging()
+    logging.info("Daemon started successfully.")
+    try:
+        while True:
+            logging.info("Daemon is alive.")
+            time.sleep(10)
+    except Exception as e:
+        logging.exception("Exception in daemon:")
+    finally:
+        logging.info("Daemon exiting.")
 
 if __name__ == "__main__":
     with daemon.DaemonContext():
-        run_daemon()
+        run()
