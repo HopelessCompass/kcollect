@@ -10,18 +10,30 @@ How to run:
 2. Then fill this file with this config (open in raw format):
 
 > [Unit]  
-> Description=Custom Log Collector Daemon  
-> After=network.target  
+> Description=KCollect Log Collector Daemon  
+> After=network.target
 >   
 > [Service]  
-> ExecStart=/usr/bin/python3 /home/youruser/kcollect/main.py  
-> WorkingDirectory=/home/youruser/kcollect  
-> StandardOutput=file:/home/youruser/kcollect/logcollector_stdout.log  
-> StandardError=file:/home/youruser/kcollect/logcollector_stderr.log  
-> Restart=on-failure  
+> Type=simple  
+> User=root  
+> WorkingDirectory=/opt/kcollect  
 >   
-> [Install]  
-> WantedBy=multi-user.target  
+> ExecStartPre=/bin/mkdir -p /opt/kcollect  
+> ExecStartPre=/bin/mkdir -p /kcollect/offsets  
+> ExecStartPre=/bin/touch /var/log/kcollect/collector.log  
+> ExecStartPre=/bin/chown -R root:root /var/log/kcollect /opt/kcollect  
+> ExecStartPre=/bin/chmod -R 755 /var/log/kcollect /opt/kcollect  
+>   
+> ExecStart=/usr/bin/python3 /opt/kcollect/main.py  
+>   
+> Restart=on-failure  
+> RestartSec=5  
+>   
+> StandardOutput=append:/var/log/kcollect/collector.log  
+> StandardError=append:/var/log/kcollect/collector.log  
+>   
+> [Install]
+> WantedBy=multi-user.target
 
 3. Then reread all unit files, update internal configuration, enable service and start service:
     
