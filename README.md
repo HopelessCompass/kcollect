@@ -19,7 +19,7 @@ How to run:
 > WorkingDirectory=/opt/kcollect  
 >   
 > ExecStartPre=/bin/mkdir -p /opt/kcollect  
-> ExecStartPre=/bin/mkdir -p /kcollect/offsets  
+> ExecStartPre=/bin/mkdir -p /opt/kcollect/offsets  
 > ExecStartPre=/bin/touch /var/log/kcollect/collector.log  
 > ExecStartPre=/bin/chown -R root:root /var/log/kcollect /opt/kcollect  
 > ExecStartPre=/bin/chmod -R 755 /var/log/kcollect /opt/kcollect  
